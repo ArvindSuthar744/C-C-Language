@@ -1,0 +1,29 @@
+	Name = ARVIND KUMAR
+	Batch = 9aug_SE_Manavsir_Batch.
+
+	1. What is software? What is software engineering?
+	Ans. Computer is electronic device which makes human life easier and faster.
+
+	2. Explain types of software?
+	Ans. Examples and types of software.
+	     1. Application Software :- Notepad,Chrome,Ms office,Dev c/c++,etc.
+	     2. System Software :- Notepad,Calculater,calender,Camera,etc.
+	     3. Driver Software :- Audio Driver,Video Diver etc.
+ 	     4. Middle Software :- Database,Middleware,Middle application server.
+	     5. Programing Software :- Dev C/C++,VScode,Subline,aslipse,TurboC/C++,Net beans etc.
+
+	3. What is SDLC? Explain each phase of SDLC
+	Ans. SDLC:- The Software Development Life Cycle (SDLC) is a process used by software development 
+    		    organizations to plan, design, develop, test, deploy, and maintain software applications.
+	  	There are 6 phases of SDLC:-
+		1. Requirement Gathering :-
+		2. Requirement Gathering :-
+		3. Designing :- Static website:- HTML,CSS,Javascript.
+		4. Coding/Implementation :- Dynamic website:- Python,Java,Php,Node.
+		5. Testing :- Quality.
+		6. Maintenance:- Update.
+
+	4. What is DFD? Create a DFD diagram on Flipkart?
+	Ans. DFD :-Data Flow Diagram
+		
+
