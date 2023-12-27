@@ -1,0 +1,319 @@
+﻿							Module : 5 Database - SQL	
+    1. What do you understand By Database?
+Ans :- A database is a structured collection of data that is organized and stored in a way that allows efficient retrieval and manipulation of information.
+     	It can be as simple as a text file with a list of names or as complex as a sophisticated relational database management system (RDBMS) containing
+	tables, relationships, and various data types.
+
+    2. What is Normalization?
+Ans :- Normalization is the process of organizing data in a database to reduce redundancy and dependency by organizing tables and columns. The main goal is
+	to eliminate data anomalies, such as update anomalies, insertion anomalies, and deletion anomalies.
+
+    3. What is Difference between DBMS and RDBMS?
+Ans :- DBMS (Database Management System) is a software that provides an interface for managing databases, handling data storage, retrieval, and  manipulation.
+
+       RDBMS (Relational Database Management System) is a type of DBMS that manages data in a tabular form with relationships between the tables. It enforces
+	the relational model and ensures data integrity through constraints.
+
+    4. What is MF Cod Rule of RDBMS Systems?
+Ans :- It seems there might be a typo or confusion in the question. The term "MF Cod Rule" is not recognized. If you meant something else, please clarify.
+
+    5. What do you understand By Data Redundancy?
+Ans :- Data redundancy occurs when the same piece of data is stored in multiple places within a database. This can lead to inconsistencies, increase storage 
+	requirements, and pose challenges in maintaining data integrity.
+	
+    6. What is DDL Interpreter?
+Ans :- DDL (Data Definition Language) interpreter is part of a database management system responsible for executing DDL commands. DDL commands are used to 
+	define and manage the structure of the database, including creating, altering, and deleting tables and other database objects.
+
+    7. What is DML Compiler in SQL?
+Ans :- DML (Data Manipulation Language) compiler is responsible for processing and executing DML commands in SQL. DML commands are used to manipulate data
+	stored in the database, including operations like inserting, updating, and deleting records.
+
+    8. What is SQL Key Constraints writing an Example of SQL Key Constraints?
+Ans :- SQL key constraints are rules applied to columns in a table to enforce data integrity and define relationships between tables. The main types of key
+	constraints are:
+	Primary Key: Ensures each record in a table is uniquely identified.
+ 	CREATE TABLE Students (
+    		StudentID INT PRIMARY KEY,
+    		FirstName VARCHAR(50),
+    		LastName VARCHAR(50)
+  	   );
+	Foreign Key: Establishes a link between two tables, referencing a unique key in another table.
+	CREATE TABLE Courses (
+    		CourseID INT PRIMARY KEY,
+   	 	CourseName VARCHAR(50)
+	   );
+
+	CREATE TABLE Enrollments (
+  	  EnrollmentID INT PRIMARY KEY,
+   	  StudentID INT,
+    	  CourseID INT,
+  	  FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
+  	  FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
+	);
+
+    9. What is save Point? How to create a save Point write a Query?
+Ans :- A savepoint is a point in a transaction to which you can later roll back. It allows you to roll back part of a transaction instead of the entire 
+	transaction. In SQL, you can create a savepoint using the savepoint statement:
+	Ex :-  SAVEPOINT my_savepoint;
+
+    10. What is trigger and how to create a Trigger in SQL?
+Ans :-  A trigger is a set of instructions that are automatically executed ("triggered") in response to certain events on a particular table or view in a 
+	database.
+	sql CREATE TRIGGER audit_trigger AFTER INSERT OR UPDATE OR DELETE ON Employees FOR EACH ROW BEGIN -- Trigger logic goes here -- You can perform 
+	actions based on the inserted, updated, or deleted data INSERT INTO AuditTable (Action, EmployeeID, Timestamp) VALUES 
+	('INSERT/UPDATE/DELETE', NEW.EmployeeID, NOW()); END;
+
+
+
+	Questions :--
+
+Table 1
+-- Create Student table
+CREATE TABLE Student_tb (
+    rollno INT PRIMARY KEY,
+    name VARCHAR(50),
+    branch VARCHAR(50)
+);
+
+-- Insert data into Student table
+INSERT INTO Student_tb (rollno, name, branch) VALUES
+(1, 'jay', 'computer sci'),
+(2, 'suhani', 'electronic and com'),
+(3, 'kriti', 'electronic');
+
+-- Create Exam table
+CREATE TABLE Exam_tb (
+    rollno INT,
+    S_code VARCHAR(50),
+    marks INT,
+    p_code VARCHAR(50),
+    PRIMARY KEY (rollno, S_code),
+    FOREIGN KEY (rollno) REFERENCES Student_tb(rollno)
+);
+
+-- Insert data into Exam table
+INSERT INTO Exam_tb (rollno, S_code, marks, p_code) VALUES
+(1, 'CS11', 50, 'CS'),
+(1, 'CS12', 60, 'CS'),
+(2, 'EC101', 66, 'EC'),
+(2, 'EC102', 70, 'EC'),
+(3, 'EC101', 45, 'EC'),
+(3, 'EC102', 50, 'EC');
+
+
+
+Table 2
+
+CREATE TABLE atable
+(
+  firstname varchar(40),
+  lastname varchar(40),
+  address varchar(40),
+   city varchar(40),
+    age int
+    )
+INSERT INTO atable(firstname,lastname,address,city,age)VALUES("mickey","mouse","123 fantacy way","anaheim",73);
+INSERT INTO atable(firstname,lastname,address,city,age)VALUES("bat","man","321 caveran ave","gotham",54);
+INSERT INTO atable(firstname,lastname,address,city,age)VALUES("wonder","women","987 truth way","paradise",39);
+INSERT INTO atable(firstname,lastname,address,city,age)VALUES("donald","duck","555 quak street","mallard",65);
+INSERT INTO atable(firstname,lastname,address,city,age)VALUES("bugs","bunny","567 carreot street","rascal",58);
+INSERT INTO atable(firstname,lastname,address,city,age)VALUES("wiely","coyote","999 acme way","canyon",61);
+INSERT INTO atable(firstname,lastname,address,city,age)VALUES("cat","woman","234 purffect street","hairball",32);
+INSERT INTO atable(firstname,lastname,address,city,age)VALUES("tweety","bird","543","itoltow",28);
+
+
+
+
+
+
+Table 3
+
+-- Create Employee table
+
+CREATE TABLE Employee_tb (
+    id INT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    salary DECIMAL(10, 2),
+    date DATETIME,
+    department VARCHAR(50)
+);
+
+-- Insert data into Employee table
+
+INSERT INTO Employee_tb (id, first_name, last_name, salary, date, department) VALUES
+(1, 'john', 'abraham', 100000, '2013-01-01 12:00:00', 'banking'),
+(2, 'michael', 'clarke', 800000, '2013-01-01 12:00:00', 'insurance'),
+(3, 'roy', 'thomas', 700000, '2013-01-01 12:00:00', 'banking'),
+(4, 'tom', 'jose', 600000, '2013-01-01 12:00:00', 'insurance'),
+(5, 'jerry', 'pinto', 650000, '2013-01-01 12:00:00', 'insurance'),
+(6, 'philip', 'mathew', 750000, '2013-01-01 12:00:00', NULL),
+(7, 'testname1', '123', 650000, '2013-01-01 12:00:00', NULL),
+(8, 'test name2', 'lname%', 600000, '2013-01-01 12:00:00', NULL);
+
+-- Create Incentive table
+
+CREATE TABLE Incentive_tb (
+    id INT,
+    date DATE,
+    amount DECIMAL(10, 2)
+);
+
+-- Insert data into Incentive table
+INSERT INTO Incentive_tb (id, date, amount) VALUES
+(1, '2013-02-01', 5000),
+(2, '2013-02-01', 3000),
+(3, '2013-02-01', 4000),
+(1, '2013-01-01', 45000),
+(2, '2013-01-01', 35000);
+
+-- Show Employee table
+SELECT * FROM Employee_tb;
+
+-- show Incentive table
+SELECT * FROM Incentive_tb;
+
+-- Get First_Name from Employee table using Tom name "Employee Name"
+
+SELECT first_name FROM Employee_tb
+WHERE first_name = 'tom';
+
+-- Get FIRST_NAME, Joining Date, and Salary from employee table
+
+SELECT first_name, date AS "Joining Date", salary FROM Employee_tb;
+
+-- Get all employee details from the employee table order by First_Name Ascending and Salary Descending
+
+SELECT * FROM Employee_tb ORDER BY first_name ASC, salary DESC;
+
+-- Get employee details from employee table whose first name contains ‘J’
+
+SELECT * FROM Employee_tb WHERE first_name LIKE '%J%';
+
+-- Get department wise maximum salary from employee table order by salary ascending
+
+SELECT department, MAX(salary) AS max_salary FROM Employee_tb GROUP BY department ORDER BY max_salary ASC;
+
+
+-- Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount greater than 3000
+
+
+SELECT e.first_name, i.amount
+FROM Employee_tb e
+JOIN Incentive_tb i ON e.id = i.id
+WHERE i.amount > 3000;
+
+-- Create After Insert trigger on Employee table which inserts not,, 
+CREATE TABLE EmployeeView_tb (
+    id INT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    salary INT,
+    date DATE,
+    department VARCHAR(50)
+);
+
+-- Create After Insert trigger  not,,   
+
+CREATE TRIGGER after_Employee_tb_insert
+AFTER INSERT ON Employee_tb
+FOR EACH ROW
+INSERT INTO Employee_tbView VALUES (NEW.id, NEW.first_name, NEW.last_name, NEW.salary, NEW.date, NEW.department);
+
+
+
+
+Table 4
+
+
+-- Create salesperson table
+CREATE TABLE salesperson_tb (
+    no INT PRIMARY KEY,
+    name VARCHAR(100),
+    city VARCHAR(50),
+    comm INT
+);
+
+-- Insert data into salesperson table
+INSERT INTO salesperson_tb (no, name, city, comm)
+VALUES
+    (1001, 'peel', 'london', 12),
+    (1002, 'serres', 'san jose', 13),
+    (1004, 'motika', 'london', 11),
+    (1007, 'rafkin', 'barcelona', 15),
+    (1003, 'axeirod', 'new york', 1);
+
+-- Create customer table
+CREATE TABLE customer_tb (
+    cnm INT PRIMARY KEY,
+    name VARCHAR(255),
+    city VARCHAR(255),
+    rating INT,
+    no INT
+);
+
+-- Insert data into customer table
+
+
+INSERT INTO customer_tb (cnm, name, city, rating, no)
+VALUES
+    (201, 'hoffman', 'london roe', 100, 1001),
+    (202, 'giovanne', 'san jose', 200, 1003),
+    (203, 'liu', 'barcelona', 300, 1002),
+    (204, 'grass', 'london', 100, 1002),
+    (206, 'clemens', 'roe', 300, 1007),
+    (207, 'pereira', 'barcelona', 100, 1004);
+
+-- Display contents of the salesperson table
+
+SELECT * FROM salesperson_tb;
+
+-- Display contents of the customer table
+
+SELECT * FROM customer_tb;
+
+-- Retrieve the requested data
+
+SELECT 
+    s.no AS Salesperson_tb_No,
+    s.name AS Salesperson_tb_Name,
+    s.city AS Salesperson_tb_City,
+    s.comm AS Salesperson_tb_Comm,
+    c.cnm AS Customer_tb_No,
+    c.name AS Customer_tb_Name,
+    c.city AS Customer_tb_City,
+    c.rating AS Customer_tb_Rating
+FROM
+    Salesperson_tb s
+JOIN
+    Customer_tb c ON s.no = c.no;
+    -- 1000
+    SELECT s.no AS order_no, s.name AS salesperson_tb_name, c.name AS customer_tb_name
+FROM salesperson_tb s
+JOIN customer_tb c ON s.no = c.no
+WHERE s.comm > 1000;
+
+--
+-- Retrieve names and cities of all salespeople in London with commission above 0.12
+
+SELECT name, city, comm FROM salesperson_tb WHERE city = 'london' AND comm > 0.12;
+
+-- Retrieve all salespeople either in Barcelona or in London
+
+SELECT * FROM salesperson_tb WHERE city IN ('barcelona', 'london');
+
+-- salespeople with commission between 0.10 and 0.12 (Boundary values excluded)
+
+SELECT * FROM salesperson_tb WHERE comm > 0.10 AND comm < 0.12;
+
+-- rating <= 100 unless they are located in Rome
+
+SELECT * FROM Customer_tb
+
+WHERE rating > 100 OR (rating <= 100 AND city = 'rome');
+										
+
+
+
+
