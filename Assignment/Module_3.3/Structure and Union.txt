@@ -1,0 +1,8 @@
+			assignment 3.3
+
+1. WAP to show difference between Structure and Union?
+Ans:-  Structure :- structure(struct) is a user-defined data type in a programming language that stores different data 		    types' values together. The struct keyword is used to define a structure data type in a program.
+	example:- id , name , deparment , email address etc..
+	
+	Union :- Union is also a user-defined datatype. All the members of a union share the same memory location. 		 Therefore, if we need to use the same memory location for two or more members, then union is the best 				 data type for that. The largest union member defines the size of the union.
+	example:- union data, union name etc..

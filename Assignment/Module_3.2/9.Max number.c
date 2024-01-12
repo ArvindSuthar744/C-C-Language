@@ -6,6 +6,7 @@ int main()
     scanf("%d",&num);
     
     int max = -111000;
+    
     while (num > 0)
     {
         int rem = num % 10;
@@ -14,6 +15,7 @@ int main()
         }
         num /= 10;
     }
-    printf("%d", max);
+    
+    printf("Max num : %d", max);
     return 0;
 }

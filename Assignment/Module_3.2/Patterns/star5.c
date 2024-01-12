@@ -1,23 +1,31 @@
 #include<stdio.h>
 main()
 {
+	int row;
+	int col;
 	int i;
 	int j;
-	int k;
 	
-	for(i =1;i <= 5; i++)
+	for(row = 1;row <= 5; row++)
 	{
-		for(j =1; j <= 5-i; j++)
-		{
-			printf(" ");
 		
-		}
-		for(k = 1; k <= i; k++)
+		for(col = 1; col <= row; col++)
 		{
 			printf("* ");
+			
+		}
+		
+			printf("\n");
+	}
+	
+		for(i = 6;i >= 1; i--)
+		{
+			for(j = 1; j <= i; j++)
+			{
+				printf("* ");
+			}
+			
+			printf("\n");
 		}
 	
-		printf("\n");
-
-	}
 }
